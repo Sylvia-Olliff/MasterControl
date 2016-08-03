@@ -1,0 +1,8 @@
+ ☐ integrate the php config functionality for Rate Mile System into Node. 
+     NOTE: This is part of the admin interface and needs to be updated for any program and easy to add new programs
+
+ ☐ Update existing docs and finish adding other documentation for use of the Master Control interface.
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✘ send authentication requests to the php login controls  @cancelled (16-08-01 16:23)
+ ✔ modify PHP login controls to accept three parameters: (user, pass, pgm) so that any program requesting user authentication can also check that said user has access to that specific program.  @started(16-07-29 15:09) @done (16-07-29 16:52) @lasted(1:43)

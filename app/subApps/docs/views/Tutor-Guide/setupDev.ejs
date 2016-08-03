@@ -1,0 +1,103 @@
+<div class="container">
+	<style type="text/css">
+		li {
+			margin-bottom: 18px;
+		}
+
+		#articleTitle {
+			margin-bottom: 40px;
+		}
+	</style>
+	<h2 id="articleTitle" class="text-center">Setup Dev environment </h2>
+	<div class="col-md-6"> <!-- Left Column - Textual  -->
+		<p>First use the example on the right for the layout of your application. This is based off of the MVC (Model View Controller) design pattern. Normally the layout of your NodeJS program would look slightly different from this however your app is going to live inside of a subfolder in the app directory of the Master Control program. To ease that transition from development to production I've changed the standard layout to fit that design change.<br /> <br /> A brief explanation of how each item in this layout works</p>
+		<ul>
+			<li>
+				<b>Models</b> - This is where your data descriptors go. Their purpose is either to store static data that the user will never change or to describe the format that you expect data from the database to be in. Think Logical files with a little bit more functionality. In this environment these will almost exclusively be used for storing static data, as reading information from a text file stored locally to your application is faster than querying the database.
+			</li>
+			<li>
+				<b>Views</b> - This is where your static 'views' go. They're your HTML pages and snippets that make up the structure of what the user sees, inside this folder is where your client-side javascript and CSS files will go as well.
+			</li>
+			<li>
+				<b>Controllers</b> - This is where all of the logic for your application goes. These will almost exclusively be .js files and represents the "server side" of your code. Any pre or post processing you wish to do between the user and your interactions with the database, as well as actually writing to and reading from the database should occur here. 
+			</li>
+			<li>
+				<b>index.js</b> - This is your routing file. It is in here that you will determine how requests made to your application are directed. This is also where you will catch any errors and either pass them back up to Master Control for it to handle or handle yourself. Your routing file should <b>ONLY</b> perform routing tasks, all actual logic should be performed by the controllers you place in the controllers folder. 
+			</li>
+			<li>
+				<b>server.js</b> - This is the one temporary file that you should never change after copying the template to the right. You need this to be able to test your application however that role will be taken over by the Master Control program when you move your application to production. If you find that you need a tool that is not covered by the one provided in the template to the right please notify whomever is responsible for maintaining the Master Control program to have it added. 
+			</li>
+			<li>
+				<b>Port Number</b> - In the template for the server.js file there is a variable created called PORT. In the template it is set to 8000. From an IBM iSeries terminal you can use the command NETSTAT, option 3, then F15 to subset, set the lower port limit to the port you wish to use to make sure that nothing else is already using that port. If you fail to do this your application will fail to start and throw an error that has something like this "uncaughtException: listen EADDRINUSE"
+			</li>
+			<li>
+				<b>Winston</b> - This is a logging tool used to capture errors and other data you tell it to and write it to a file that you specify like so. <pre>
+<code class="language-javascript">
+winston.add(
+	winston.transports.File,
+	{
+		filename: 'path-to-your-app/logs/info.log',
+		level: 'info',
+		json: true,
+		eol: '\n',
+		timestamp: true,
+		handleExceptions: true
+	}
+);</code></pre> If you wish to have different kinds of messages to be logged to different files simply add more transport Files each with a different filename and type. 
+			</li>
+		</ul>
+		
+	</div>
+	<div class="col-md-6"> <!-- Right Column - Used for images and diagrams -->
+		<img src="res/Layout.png" alt="Layout"> <hr>
+<pre>
+		<code class="language-javascript">
+//Declare Tools
+var express 	 = require('express');
+var app     	 = express();
+var server  	 = require('http').createServer(app);
+var io      	 = require('socket.io')(server);
+var ss 	 		 = require('socket.io-stream');
+var fs           = require('fs');
+var port    	 = 8000;
+var morgan  	 = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser   = require('body-parser');
+var multer 		 = require('multer');
+var winston      = require('winston');
+var db 			 = require('/QOpenSys/QIBM/ProdData/Node/os400/db2i/lib/db2');
+
+
+//Server configuration
+app.use(morgan('dev'));
+app.use(cookieParser());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({
+  limit: '50mb',   
+  extended: true
+}));
+app.use('/css', express.static(__dirname + '/views/css/'));
+app.use('/js', express.static(__dirname +  '/views/js/'));
+app.use('/docs/', express.static(__dirname +  '/views/docs/'));
+app.set('view engine', 'ejs');
+
+//Establish router
+var args = {
+	app: app,
+	db: db,
+	express: express,
+	io: io,
+	ss: ss,
+	fs: fs,
+	winston: winston
+}
+
+require('./app/index.js')(args);
+
+server.listen(port);
+winston.info("The server is listening on port " + port);
+</code>
+</pre>
+	</div>
+	<script src="js/prism.js"></script>
+</div>

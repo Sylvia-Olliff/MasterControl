@@ -1,0 +1,71 @@
+<div class="container">
+	<h3 class="text-center">Add New Web Application to Master Control</h3>
+	<hr>
+	<div class="col-md-2"></div>
+	<div class="col-md-8 text-left">
+		<p>To add a new Application to Master Control, create a new folder in the directory shown below.</p>
+			<img src="docs/res/AddNewLocation.PNG" alt="Sub-App Directory"> <hr>
+		<p>Make sure the name of this folder is short, concise, and contains no spaces. This name will be used in accessing your new application.</p>
+		<p>Next add a .js file to your newly created folder called "index.js" - this is your routing file. It contains the instructions on what to do with requests made to your application. For example here is the beginning code for the Docs subApp (what you are using now) </p>
+			<!-- <img src="res/SubAppRouterExample.png" alt="Sub-App Router"> -->
+<pre>
+				<code class="language-javascript">
+module.exports = function(args) {
+	var express = args.express;
+
+
+	var router = express.Router();
+
+	router.use('/css', express.static(__dirname + '/views/css/'));
+	router.use('/js', express.static(__dirname +  '/views/js/'));
+	router.use('/res', express.static(__dirname + '/views/Resources/'));
+
+	router.get('/', function(req, res) {
+		res.render(__dirname + '/views/index.ejs');
+	});
+
+	router.get('/addNew', function(req, res) {
+		res.render(__dirname + '/views/New-Web/addNew.ejs');
+	});
+
+	router.get('/setupDev', function(req, res) {
+		res.render(__dirname + '/views/Tutor-Guide/setupDev.ejs');
+	});
+
+	return router;
+
+}
+				</code>
+</pre>
+		<hr> 
+		<p>All further resources for your app should be placed within the folder you created following the MVC (Model - View - Controller) format</p>
+		<p>Make sure that you tell the Router where your static resources are located (JavaScript Files and CSS Files) What the three lines of code below are stating is that if this subApp receives a request that is prefixed with /css , /js , or /res then the text in the URL after that is refering to the contents of the specified location.</p>
+<pre>
+				<code class="language-javascript">
+	router.use('/css', express.static(__dirname + '/views/css/'));
+	router.use('/js', express.static(__dirname +  '/views/js/'));
+	router.use('/res', express.static(__dirname + '/views/Resources/'));
+				</code>
+</pre>			
+		<hr>
+		<p>Make sure your exports function has one parameter. You don't have to call it args but this is where all of the tools and node references available under Master Control are passed to your App.</p>
+		<p>For a complete list of all available tools see <a href="#" id="toolList">here</a></p>
+		<hr>
+		<p>To make use of a given tool in your App's routing file declare your variable like this:</p>
+<pre>
+				<code class="language-javascript">
+module.exports = function(args) {
+	var express = args.express;
+
+				</code>
+</pre>
+ 		<hr>
+ 		<p>var 'your variable name' = args.'the name of the tool' <br />NOTE: args can be whatever you wish so long as it matches what you use in the function line at the top of the screenshot.</p>
+		<hr>
+		<p>It is also important that you declare your Router and use it for declaring the routes that your app is going to handle instead of the app object.</p>
+		<p>If you do not handle your own 404 and 500 errors, Master Control will handle them for you. THIS IS NOT IDEAL! This is only done so that Master Control does not fail and thus interrupt other Apps.</p>
+	</div>
+	<div class="col-md-2"></div>
+
+    <script src="js/prism.js"></script>
+</div>
