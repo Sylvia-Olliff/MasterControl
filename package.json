@@ -1,28 +1,46 @@
 {
   "name": "master_control",
-  "version": "0.0.1",
+  "version": "1.8.95",
   "description": "Master Control for node services",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "adm-zip": "latest",
-    "async": "latest",
+    "@risingstack/trace": "^2.27.5",
+    "async": "^2.0.1",
     "body-parser": "~1.0.0",
+    "bootstrap-material-design": "^0.5.10",
     "cookie-parser": "~1.0.0",
+    "cron": "^1.1.1",
+    "dotenv": "^2.0.0",
     "ejs": "~0.8.5",
     "express": "~4.14.0",
     "express-load-routes": "^1.0.1",
     "express-session": "~1.0.0",
     "method-override": "~1.0.0",
+    "moment": "^2.15.1",
+    "moment-timezone": "^0.5.9",
     "morgan": "~1.0.0",
     "multer": "latest",
-    "passport": "^0.3.2",
     "socket.io": "latest",
+    "socket.io-redis": "^1.0.0",
     "socket.io-stream": "latest",
     "winston": "^2.2.0"
   },
   "author": "Joe Olliff",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gentelella": "^1.3.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-ext-replace": "^0.3.0",
+    "gulp-shell": "^0.5.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7"
+  }
 }

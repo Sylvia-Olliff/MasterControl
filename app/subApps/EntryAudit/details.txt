@@ -1,0 +1,54 @@
+ACEENTHR ---- Points to --- IMPFSUAL (INV#FS is Invoice Number, FILEFS is File Number) *************** -- Confirmed
+Use the value of INV#FS to find the tarrif numbers in IMPEHST1P
+
+IHSTINV --- This contains the Broker Number, File Number, and Invoice Numbers (count!)
+IMPEHST1P --- This contains the Tarrif Numbers associated with the Broker and File Number ((This may also contain the information that would be under "Invoice Data"))
+
+IMPWDTYP    Import file for duty (used to be DTY?ws?)   ((May be needed later. Has HTS value))
+
+
+
+
+
+
+Highest level info --- ABIHOL0P (Shipment Header File) - information at the file level.
+Second level info --- ABIHOL2P (Invoice Header info -- can locate using broker and file invoice number not to be used, this just lists the number of invoices this file has, for each one first list a link to the fill invoice data in the header file. Also contains the Commercial Invoice Number 'I2COMINV' this can be used for further information from the commercial invoice file (? whatever that is ?))
+Third level info --- ABIHOL3P (Invoice Detail file -- SYSHTSMP for detailed HTS info. check the following fields within ABIHOL3P (I3TSU41, I3TSUS#2, I3TSUS#3, I3TSUS#4, I3TSUS#5, I3TSUS#6) these are all of the HTS codes associated with a single invoice.  
+
+
+
+
+PG's
+01
+02
+04
+05
+06
+07
+08
+10
+13
+14
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+50
+51
+55
+60

@@ -1,0 +1,83 @@
+<div class="col-md-6">
+	<ul class="list-group">
+		<li class="list-group-item">
+			<h3 class="list-group-item-heading bg-success">File Number:</h3>
+			<p class="list-group-item-text bg-primary"><%- fileLevel.FILE %></p>
+		</li>
+	</ul>
+</div>
+<div class="col-md-6">
+	<ul class="list-group">
+		<li class="list-group-item">
+			<h3 class="list-group-item-heading bg-success">Entry Number</h3>
+			<p class="list-group-item-text bg-primary"><%- fileLevel.I0ENTNUM %></p>
+		</li>
+	</ul>
+</div>
+<hr>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<ul class="list-group">
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>Statement Type: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.I0ISTAT %></span></h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>Live Entry: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.I0LIVE %></span></h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>MFG ID/Seller: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.MFG_Seller %></span></h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>FGN EXP/Seller: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.I0MIDF %></span></h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>Produce SEB?: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.I0SEB %></span></h5>
+		</li>	
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>Bond Type: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.I0BTYPE %></span></h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>Entry Type: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.I0TYPEE %></span></h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>Description: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.I0GOODFS %></span></h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>(Y/S): </strong> 
+				<span class="list-group-item-text bg-warning">
+					<% if (fileLevel.MFG_Seller.trim() != "") { %>
+						S
+					<% } %>
+				</span>
+			</h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>(Y/S): </strong>
+				<span class="list-group-item-text bg-warning">
+					<% if (fileLevel.I0MIDF.trim() != "") { %>
+						S
+					<% } %>
+				</span>
+			</h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>MOT: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.I0MOTN %></span></h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>Entry Date: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.I0DATE %></span></h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>Payment Due Date: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.I0DUEDAT %></span></h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>C/O ISO: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.I0OISO %></span></h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>C/E ISO: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.I0EISO %></span></h5>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-success"><strong>ETA at Entry Port: </strong><span class="list-group-item-text bg-warning"><%- fileLevel.I0ESTDOA %></span></h5>
+		</li>
+	</ul>
+</div>
+<div class="col-md-2"></div>

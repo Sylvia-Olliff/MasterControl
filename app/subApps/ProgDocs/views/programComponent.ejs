@@ -1,0 +1,44 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>
+
+<div class="row">
+    <div class="well">
+			<fieldset>
+				<legend>Program Component/Subroutine
+          <button id="removeComponent" class="btn btn-default btn-xs"><i class="material-icons">delete</i></button>
+        </legend>
+				<div class="form-group">
+					<label for="comName" class="col-md-2 control-label text-right">
+            <strong class="text-info">Component Name: </strong>
+          </label>
+          <div class="col-md-4">
+           	<input type="text" name="comName" id="comName" class="form-control" data-toggle="tooltip" data-placement="top" title="" data-original-title="Name of component or Subroutine">
+          </div>
+          <label for="comAssFiles" class="col-md-2 control-label text-right">
+            <strong class="text-info">Associated Files:</strong>
+          </label>
+          <div class="col-md-4">
+            <textarea class="form-control" id="comAssFiles" name="comAssFiles" rows="6" style="font-size: 11pt;" data-toggle="tooltip" data-placement="top" title="" data-original-title="What files (if any) does this component use?">Comma separate each File name.</textarea>
+          </div>
+				</div>
+        <br><br>
+        <div class="form-group">
+          <label for="comTask" class="col-md-2 control-label text-right">
+            <strong class="text-info">Component Task:</strong>
+          </label>
+          <div class="col-md-4">
+            <textarea class="form-control" id="comTask" name="comTask" rows="7" data-toggle="tooltip" data-placement="top" title="" data-original-title="What is this component or Subroutine supposed to do?"></textarea>
+          </div>
+          <label for="comLogic" class="col-md-2 control-label text-right">
+            <strong class="text-info">Component Logic:</strong>
+          </label>
+          <div class="col-md-4">
+            <textarea class="form-control" id="comLogic" name="comLogic" rows="7" data-toggle="tooltip" data-placement="top" title="" data-original-title="This is similar to program Details however this is a greater focus on the programatic steps involved with this component/Subroutine"></textarea>
+          </div>
+        </div>
+			</fieldset>
+    </div>
+</div>

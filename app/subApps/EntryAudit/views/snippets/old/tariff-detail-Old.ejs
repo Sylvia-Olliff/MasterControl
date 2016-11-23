@@ -1,0 +1,353 @@
+<div class="row">
+	<div class="well">
+		<table class="table table-condensed">
+			<thead class="bg-primary">
+				<th>
+					<strong>HTS 1 Info</strong>
+				</th>
+				<th></th>
+				<th>
+					<strong>HTS 2 Info</strong>
+				</th>
+				<th></th>
+				<th>
+					<strong>HTS 3 Info</strong>
+				</th>
+				<th></th>
+				<th>
+					<strong>Line Info</strong>
+				</th>
+				<th></th>
+			</thead>
+			<tr>
+				<td class="bg-success">
+					<strong>USTS 1: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3TSU41 %></span>
+				</td>	
+				<td class="bg-success">
+					<strong>USTS 2: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.HTS2 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>USTS 3</strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.HTS3 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Yield: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3YIELD %></span>
+				</td>	
+			</tr>
+			<tr>
+				<td class="bg-success">
+					<strong>SPI HTS1: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3SPIP1 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>SPI HTS2: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3SPIP2 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>SPI HTS3: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3SPIP3 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Fee Exempt: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3FEEEXP %></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="bg-success">
+					<strong>SPI2 HTS1: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3SPIS1 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>SPI2 HTS2: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3SPIS2 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>SPI2 HTS3: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3SPIS3 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Visa Number: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.VISANUM %></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="bg-success">
+					<strong>SPI Country HTS1: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3SPIC1 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>SPI Country HTS2: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3SPIC2 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>SPI Country HTS3: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3SPIC3 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>CVD Case #: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.CVDCASE %></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="bg-success">
+					<strong>Column HTS1: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3RATE %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Column HTS2: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3RATE2 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Column HTS3: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3RATE3 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>CVD Rate: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3CVDRAT %></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="bg-success">
+					<strong>Value HTS1: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3TSV42 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Value HTS2: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3TSVA2 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Value HTS3: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3TSVA3 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>ADD Case #: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.ADDCASE %></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="bg-success">
+					<strong>Quantity 1 HTS1: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3QTY44 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Quantity 1 HTS2: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3QTY54 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Quantity HTS3: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3QTY64 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>ADD Rate: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3ADDRAT %></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="bg-success">
+					<strong>Quantity 2 HTS1: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3QTY45 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Quantity 2 HTS2: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3QTY55 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Quantity HTS3: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3QTY65 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Line Weight: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3LINWGT %></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="bg-success">
+					<strong>Quantity 3 HTS1: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3QTY46 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Quantity 3 HTS2: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3QTY56 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Quantity 3 HTS3: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3QTY66 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Pro-Rate Non-Duty Chg: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3CHGNDC %></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="bg-success">
+					<strong>OA HTS1: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3OA1 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>OA HTS2: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3OA2 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>OA HTS3: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3OA3 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>Dutiable Charges: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3CHGDC %></span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="8" class="text-center">
+					<strong>--------------------------------------------------------------------</strong>
+				</td>
+			</tr>
+			<thead class="bg-primary">
+				<th colspan="8" class="text-center"><strong>Further Line Info</strong></th>
+			</thead>
+			<tr>
+				<td class="bg-success">
+					<strong>C/O This Line Item: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3CO %></span>
+				</td>
+				<td class="bg-success">
+					<strong>C/O Header: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I0OISO %></span>
+				</td>
+				<td class="bg-success">
+					<strong>C/E This Line Item: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3COE %></span>
+				</td>
+				<td class="bg-success">
+					<strong>C/E Header: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I0EISO %></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="bg-success">
+					<strong>Charge: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3CHG48 %></span>
+				</td>
+				<td class="bg-success">
+					<strong>MFG/Seller: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.MFG %></span>
+				</td>
+				<td class="bg-success">
+					<strong>MFG/Seller (Y/S): </strong>
+				</td>
+				<td class="bg-primary">
+					<span></span>
+				</td>
+			</tr>
+			<tr>
+				<td></td><td></td>
+				<td class="bg-success">
+					<strong>FGNEXP/Seller: </strong>
+				</td>
+				<td class="bg-primary">
+					<span><%= tarDetails.I3MIDF %></span>
+				</td>
+				<td class="bg-success">
+					<strong>FGNEXP/Seller (Y/S): </strong>
+				</td>
+				<td class="bg-primary">
+					<span></span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,29 @@
+<% var count = 0; %>
+<table class="table table-striped table-hover table-fixed">
+	<thead>
+		<tr>
+			<th class="col-md-1">#</th>
+			<th class="col-md-1">Level</th>
+			<th class="col-md-8">Message</th>
+			<th class="col-md-2">Timestamp</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% for(entry in logs) { count++; %>
+			<% if(logs[entry].level == "info") { %>
+				<tr class="info">
+			<% } else if(logs[entry].level == "error") { %>
+				<tr class="danger">
+			<% } else if(logs[entry].level == "debug") { %>
+				<tr class="warning">
+			<% } else { %>
+				<tr>
+			<% } %>
+				<td class="col-md-1"><%- count %></td>
+				<td class="col-md-1"><%- logs[entry].level %></td>
+				<td class="col-md-7 text-nowrap" title="Full Message" data-toggle="popover" data-placement="top" data-content='<%- logs[entry].message %>'><%- logs[entry].message %></td>
+				<td class="col-md-3"><%- logs[entry].timestamp %></td>
+			</tr>
+		<% } %>
+	</tbody>
+</table>

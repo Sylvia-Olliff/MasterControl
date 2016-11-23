@@ -1,0 +1,332 @@
+<div class="row">
+	<div class="col-md-12 text-center"><button id="updateBtn" type="button" class="btn btn-lg btn-raised btn-success">Update</button></div>
+</div>
+<hr>
+
+<form class="form" id="pgmDoc">
+    <fieldset>
+        <legend>Program Header Documentation</legend>
+        <div class="form-group">
+            <label for="pgmName" class="col-md-1 control-label text-right">
+                 <strong class="text-info">Program Name: </strong>
+            </label>
+            <div class="col-md-2">
+                <input type="text" name="pgmName" id="pgmName" class="form-control" data-toggle="tooltip" data-placement="top" title="" data-original-title="This is the name of your program" value="<%- pgmData.name %>">
+            </div>
+            <label for="pgmType" class="col-md-1 control-label text-right">
+                 <strong class="text-info">Program Type: </strong>
+            </label>
+            <div class="col-md-2">
+                <select id="pgmType" name="pgmType" class="form-control" data-toggle="tooltip" data-placement=data-original-title="What kind of program is it?">
+                <% if(pgmData.type == "RPGLE") { %>
+                    <option value="RPGLE" selected>RPGLE</option>
+                <% } else { %>
+                	<option value="RPGLE">RPGLE</option>
+                <% } %>
+                <% if(pgmData.type == "SQLRPGLE") { %>
+                    <option value="SQLRPGLE" selected>SQLRPGLE</option>
+                <% } else { %>
+                	<option value="SQLRPGLE">SQLRPGLE</option>
+                <% } %>
+                <% if(pgmData.type == "CL") { %>
+                    <option value="CL" selected>CL</option>
+                <% } else { %>
+                	<option value="CL">CL</option>
+                <% } %>
+                <% if(pgmData.type == "CMD") { %>
+                    <option value="CMD" selected>CMD</option>
+                <% } else { %>
+                	<option value="CMD">CMD</option>
+                <% } %>
+                <% if(pgmData.type == "REPORT") { %>
+                    <option value="REPORT" selected>REPORT</option>
+                <% } else { %>
+                	<option value="REPORT">REPORT</option>
+                <% } %>
+                <% if(pgmData.type == "VIEW") { %>
+                    <option value="VIEW" selected>VIEW</option>
+                <% } else { %>
+                	<option value="VIEW">VIEW</option>
+                <% } %>
+                <% if(pgmData.type == "WEB") { %>
+                    <option value="WEB" selected>WEB</option>
+                <% } else { %>
+                	<option value="WEB">WEB</option>
+                <% } %>
+                </select>
+            </div>
+            <label for="system" class="col-md-1 control-label text-right">
+                 <strong class="text-info">System: </strong>
+            </label>
+            <div class="col-md-2">
+                <input type="text" name="system" id="system" class="form-control" data-toggle="tooltip" data-placement="top" title="" data-original-title="If this is part of a larger group of programs, what is that group? (ACE FDA for example)" value="<%- pgmData.system %>">
+            </div>
+            <label for="proDate" class="col-md-1 control-label text-right">
+                <strong class="text-info">Date in Production</strong>
+            </label>
+            <div class="col-md-2">
+                <input type="text" name="proDate" id="proDate" class="form-control" value="<%- pgmData.proDate %>">
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="progress">
+            <div class="progress-bar progress-bar-primary" style="width: 100%"></div>
+        </div>
+        <div class="form-group">
+            <label for="reqBy" class="col-md-1 control-label text-right">
+                 <strong class="text-info">Requested By: </strong>
+            </label>
+            <div class="col-md-2">
+                <input type="text" name="reqBy" id="reqBy" class="form-control" data-toggle="tooltip" data-placement="top" title="" data-original-title="Who requested this program?" value="<%- pgmData.reqBy %>">
+            </div>
+            <label for="department" class="col-md-1 control-label text-right">
+                 <strong class="text-info">Department: </strong>
+            </label>
+            <div class="col-md-2">
+                <select id="department" name="department" class="form-control"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Which department is this primarily for">
+                <% if(pgmData.department == "ADMIN") { %>	
+                    <option value="ADMIN" selected>ADMIN</option>
+                <% } else { %>
+                	<option value="ADMIN">ADMIN</option>
+                <% } %>
+                <% if(pgmData.department == "DP") { %>	
+                    <option value="DP" selected>DP</option>
+                <% } else { %>
+                	<option value="DP">DP</option>
+                <% } %>
+                <% if(pgmData.department == "DRAWBACK") { %>	
+                    <option value="DRAWBACK" selected>DRAWBACK</option>
+                <% } else { %>
+                	<option value="DRAWBACK">DRAWBACK</option>
+                <% } %>
+                <% if( pgmData.department == "ENTRY") { %>	
+                    <option value="ENTRY" selected>ENTRY</option>
+                <% } else { %>
+                	<option value="ENTRY">ENTRY</option>
+                <% } %>
+                <% if( pgmData.department == "EXPORT") { %>	
+                    <option value="EXPORT" selected>EXPORT</option>
+                <% } else { %>
+                	<option value="EXPORT">EXPORT</option>
+                <% } %>
+                <% if( pgmData.department == "IMPORT") { %>	
+                    <option value="IMPORT" selected>IMPORT</option>
+                <% } else { %>
+                	<option value="IMPORT">IMPORT</option>
+                <% } %>
+                <% if( pgmData.department == "RBNAL") { %>	
+                    <option value="RBNAL" selected>RBNAL</option>
+                <% } else { %>
+                	<option value="RBNAL">RBNAL</option>
+                <% } %>
+                </select>
+            </div>
+            <label for="location" class="col-md-1 control-label text-right">
+                <strong class="text-info">Location: </strong>
+            </label>
+            <div class="col-md-2">
+                <input type="text" name="location" id="location" class="form-control" data-toggle="tooltip" data-placement="top" title="" data-original-title="If this is a Green-Screen which library is it in (source), if this is web, what is its absolute path?" value="<%- pgmData.location %>">
+            </div>
+            <label for="reqDate" class="col-md-1 control-label text-right">
+                 <strong class="text-info">Date Requested: </strong>
+            </label>
+            <div class="col-md-2">
+                <input type="text" name="reqDate" id="reqDate" class="form-control" value="<%- pgmData.reqDate %>">
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-group">
+            <label for="design" class="col-md-1 control-label text-right">
+                 <strong class="text-info">Design Members: </strong>
+            </label>
+            <div class="col-md-2">
+                <input type="text" name="design" id="design" class="form-control" value="<%- pgmData.design %>">
+            </div>
+            <label for="calledBy" class="col-md-1 control-label text-right">
+                 <strong class="text-info">Called By: </strong>
+            </label>
+            <div class="col-md-2">
+                <textarea class="form-control" id="calledBy" name="calledBy" rows="10" style="font-size: 9pt;"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Which programs/menus/CLs call this program?"><%- pgmData.calledBy %></textarea>
+            </div>
+            <label for="calls" class="col-md-1 control-label text-right">
+                 <strong class="text-info">Calls: </strong>
+            </label>
+            <div class="col-md-2">
+                <textarea class="form-control" id="calls" name="calls" rows="10" style="font-size: 9pt;"  data-toggle="tooltip" data-placement="top" title="" data-original-title="What programs does this one call?"><%- pgmData.calls %></textarea>
+            </div>
+            <label for="funcKeys" class="col-md-1 control-label text-right">
+                 <strong class="text-info">Function Keys: </strong>
+            </label>
+            <div class="col-md-2">
+                <select id="funcKeys[]" name="funcKeys[]" class="form-control" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hold down the Ctrl button and click on each function key your program uses. NOTE: make sure you release the Ctrl button first if you use the mouse wheel to scroll the list" multiple>
+					<% if(pgmData.funcKeys.indexOf('1') > -1) { %>
+                    	<option  value="1" selected>F1 - help           </option>
+                    <% } else { %>
+                    	<option  value="1">F1 - help           </option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('2') > -1) { %>
+                    	<option  value="2" selected>F2 - Fold           </option>
+                    <% } else { %>
+                    	<option  value="2">F2 - Fold           </option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('3') > -1) { %>
+                    	<option  value="3" selected>F3 - Exit           </option>
+                    <% } else { %>
+                    	<option  value="3">F3 - Exit           </option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('4') > -1) { %>
+                    	<option  value="4" selected>F4 - Prompt         </option>
+                    <% } else { %>
+                    	<option  value="4">F4 - Prompt         </option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('5') > -1) { %>
+                    	<option  value="5" selected>F5 - Refresh        </option>
+                    <% } else { %>
+                    	<option  value="5">F5 - Refresh        </option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('6') > -1) { %>
+                    	<option  value="6" selected>F6 - New/Add        </option>
+                    <% } else { %>
+                    	<option  value="6">F6 - New/Add        </option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('7') > -1) { %>
+                    	<option  value="7" selected>F7 - Print          </option>
+                    <% } else { %>
+                    	<option  value="7">F7 - Print          </option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('8') > -1) { %>
+                    	<option  value="8" selected>F8 - Define in Desc </option>
+                    <% } else { %>
+                    	<option  value="8">F8 - Define in Desc </option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('9') > -1) { %>
+                    	<option  value="9" selected>F9 - Email          </option>
+                    <% } else { %>
+                    	<option  value="9">F9 - Email          </option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('10') > -1) { %>
+                    	<option value="10" selected>F10 - Additional options</option>
+                    <% } else { %>
+                    	<option value="10">F10 - Additional options</option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('11') > -1) { %>
+                    	<option value="11" selected>F11 - Define in Desc</option>
+                    <% } else { %>
+                    	<option value="11">F11 - Define in Desc</option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('12') > -1) { %>
+                    	<option value="12" selected>F12 - Return        </option>
+                    <% } else { %>
+                    	<option value="12">F12 - Return        </option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('13') > -1) { %>
+                    	<option value="13" selected>F13 - Save Data     </option>
+                    <% } else { %>
+                    	<option value="13">F13 - Save Data     </option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('14') > -1) { %>
+                    	<option value="14" selected>F14 - Define in Desc</option>
+                    <% } else { %>
+                    	<option value="14">F14 - Define in Desc</option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('15') > -1) { %>
+                    	<option value="15" selected>F15 - Define in Desc</option>
+                    <% } else { %>
+                    	<option value="15">F15 - Define in Desc</option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('16') > -1) { %>
+                    	<option value="16" selected>F16 - Define in Desc</option>
+                    <% } else { %>
+                    	<option value="16">F16 - Define in Desc</option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('17') > -1) { %>
+                    	<option value="17" selected>F17 - Define in Desc</option>
+                    <% } else { %>
+                    	<option value="17">F17 - Define in Desc</option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('18') > -1) { %>
+                    	<option value="18" selected>F18 - Define in Desc</option>
+                    <% } else { %>
+                    	<option value="18">F18 - Define in Desc</option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('19') > -1) { %>
+                    	<option value="19" selected>F19 - Define in Desc</option>
+                    <% } else { %>
+                    	<option value="19">F19 - Define in Desc</option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('20') > -1) { %>
+                    	<option value="20" selected>F20 - Define in Desc</option>
+                    <% } else { %>
+                    	<option value="20">F20 - Define in Desc</option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('21') > -1) { %>
+                    	<option value="21" selected>F21 - Define in Desc</option>
+                    <% } else { %>
+                    	<option value="21">F21 - Define in Desc</option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('22') > -1) { %>
+                    	<option value="22" selected>F22 - Define in Desc</option>
+                    <% } else { %>
+                    	<option value="22">F22 - Define in Desc</option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('23') > -1) { %>
+                    	<option value="23" selected>F23 - Confirm       </option>
+                    <% } else { %>
+                    	<option value="23">F23 - Confirm       </option>
+                    <% } %>
+                    <% if(pgmData.funcKeys.indexOf('24') > -1) { %>
+                    	<option value="24" selected>F24 - Define in Desc</option>
+                    <% } else { %>
+                    	<option value="24">F24 - Define in Desc</option>
+                    <% } %>
+                </select>
+            </div>
+        </div>
+    </fieldset>
+    <br><br>
+    <div class="progress">
+        <div class="progress-bar progress-bar-primary" style="width: 100%"></div>
+    </div>
+    <hr>
+    <fieldset>
+        <legend>Program Details</legend>
+        <div class="form-group">
+            <label for="pgmTask" class="col-md-1 control-label text-right"">
+                 <strong class="text-info">Task: </strong>
+            </label>
+            <div class="col-md-3">
+                <textarea class="form-control" id="pgmTask" name="pgmTask" rows="10" data-toggle="tooltip" data-placement="top" title="" data-original-title="Using real world language what is your program suppose to do? What problem does it solve?"><%- pgmData.pgmTask %></textarea>
+            </div>
+            <label for="pgmFiles" class="col-md-1 control-label text-right">
+                 <strong class="text-info">Files Used: </strong>
+            </label>
+            <div class="col-md-3">
+                <textarea class="form-control" id="pgmFiles" name="pgmFiles" rows="10" data-toggle="tooltip" data-placement="top" title="" data-original-title="Which files does this program use? Seperate each by a comma"><%- pgmData.pgmFiles %></textarea>
+            </div>
+            <label for="pgmDesc" class="col-md-1 control-label text-right">
+                 <strong class="text-info">Description: </strong>
+            </label>
+            <div class="col-md-3">
+                <textarea class="form-control" id="pgmDesc" name="pgmDesc" rows="10" data-toggle="tooltip" data-placement="top" title="" data-original-title="Describe how your program goes about performing its task, this can be as high level or detailed as necessary"><%- pgmData.pgmDesc %></textarea>
+            </div>
+        </div>
+    </fieldset>
+    <br><br>
+    <div class="progress">
+        <div class="progress-bar progress-bar-primary" style="width: 100%"></div>
+    </div>
+    <hr>
+    <div class="alert alert-danger">
+        <p class="text-center"><strong>...Component Editing Coming Soon...</strong></p>
+    </div>
+    <div id="content">
+            
+    </div>
+     <div id="submissionResponse" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button type="button" class="mdl-snackbar__action"></button>
+     </div>
+ </form>

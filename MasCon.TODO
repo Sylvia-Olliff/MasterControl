@@ -1,8 +1,33 @@
- ☐ integrate the php config functionality for Rate Mile System into Node. 
-     NOTE: This is part of the admin interface and needs to be updated for any program and easy to add new programs
+
+ ☐ Investigate what it would take to migrate the Rate Mile system to node. 
+     ☐ Estimate time for switch over
+     ☐ Effeciency change for switch over
+     ☐ Reorganize layout of Rate Mile system if moved
+         NOTE: Determine whether to set up entire Rate Mile system under one sub app or one for each section
 
  ☐ Update existing docs and finish adding other documentation for use of the Master Control interface.
+     ☐ Add Tutorial on Asynchronous and Event Driven programming
+     ☐ Add Tutorial on how to use Winston for error handling and logging
+
+ ☐ Update error logging and configuration utilities for Master Control
+     ☐ Create JSON parser to view Winston logs
+
+
+
+
+
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✘ Pass back to the calling program the entire DS  @cancelled (16-09-09 14:18) @project(MILE SOCKET SYSTEM)
+  NOTE: Let the node program sort through the contents (better at it anyways)
+ ✔ modify a test program to accept parms intelligently filling in the MMI1DS format  @done (16-09-09 14:17) @project(MILE SOCKET SYSTEM)
+  NOTE: depending on the number of parms passed in.
+ ✔ Integrate Winston fully into error handling  @done (16-08-29 15:47)
+ ✔ Add How to setup Debug flags  @done (16-08-29 15:47)
+ ✘ integrate the php config functionality for Rate Mile System into Node.  @cancelled (16-08-19 10:22)
+ ✘ Modify config utility to be able to point to any new program @cancelled (16-08-19 10:22)
+ ✘ Determine workaround for files under a different server @cancelled (16-08-19 10:22)
+ ✔ Add Cluster support for Master Control  @done (16-08-19 10:22)
+ ✔ Add how to setup Dev Environment @done (16-08-04 08:10)
  ✘ send authentication requests to the php login controls  @cancelled (16-08-01 16:23)
  ✔ modify PHP login controls to accept three parameters: (user, pass, pgm) so that any program requesting user authentication can also check that said user has access to that specific program.  @started(16-07-29 15:09) @done (16-07-29 16:52) @lasted(1:43)

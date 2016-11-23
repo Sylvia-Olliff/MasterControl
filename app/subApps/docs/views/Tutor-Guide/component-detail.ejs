@@ -1,0 +1,28 @@
+<h3 class="text-center"><%- component.title %></h3>
+<% if(component.depreciated) { %>
+	<div class="col-md-12 bg-danger">This component is depreciated and will be removed soon!</div>
+<% } %>
+<div class="col-md-12">
+	<ul class="list-group"> 
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-primary">CalledBy:</h5>
+			<p class="list-group-item-text wrap"><%- component.calledBy %></p>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-primary">Associated Files:</h5>
+			<p class="list-group-item-text wrap"><%- component.files %></p>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-primary">Task:</h5>
+			<p class="list-group-item-text wrap"><%- component.task %></p>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-primary">Location:</h5>
+			<p class="list-group-item-text wrap"><%- component.location %></p>
+		</li>
+		<li class="list-group-item">
+			<h5 class="list-group-item-heading bg-primary">Logic:</h5>
+			<p class="list-group-item-text wrap"><%- component.logic %></p>
+		</li>
+	</ul>
+</div>

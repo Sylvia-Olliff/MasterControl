@@ -1,0 +1,125 @@
+<div class="container">
+	<div class="row">
+		<h3 class="text-center">RBNAL Rate System Design</h3>
+		<h5 class="text-center bg-warning">NOTE: click on the component names for a detailed analysis of that component</h5>
+		<div class="col-md-6"> <!-- Left Column - Textual  -->
+			<div class="well">
+				<h4 class="text-center bg-primary">Purpose:</h4>
+				<p class="bg-success">
+					To provide an entry system for continental transport contracts with Rogers and Brown North American Logistics based on a series of lane precedence and specifications. <br />
+					To also provide a Query system for dispatchers to quote a potential price for the transportation of goods along a specific route while providing the dispatcher a list of contract holders to contact.
+				</p>
+				<hr>
+				<h4 class="text-center bg-primary">Design:</h4>
+				<p class="bg-success">
+					The RBNAL Rating System is built on the principle, "Seperation of Concerns". Meaning that it is broken down into seperate entities that perform one function only, working in concert to provide the complete service. This allows the system to be updated easily and for the logic flow of the system to be followed more readily.
+				</p>
+				<hr>
+				<h4 class="text-center bg-primary">Detail View:</h4>
+				<div id="detailView"></div>
+			</div>
+		</div>
+		<div class="col-md-6"> <!-- Right Column - Used for images and diagrams -->
+			<div class="well">
+				<h4 class="text-center bg-primary">TruckRateBuilder</h4>
+				<h5 class="bg-warning">
+					<strong>Contains the following components:</strong>
+				</h5>
+				<ul id="rateBuildComp" class="list-group">
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="checkCODE" href="#" class="component"><strong>checkCode.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This is depreciated and will be phased out soon. It had been used to verify that the SCAC code entered was a valid SCAC code. However the text field has been replaced with a dropdown list so only valid SCAC codes can be selected.</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="config" href="#" class="component"><strong>config.ini</strong></a></h5>
+						<p class="list-group-item-text bg-success">This is the configuration file used to disable/enable the program itself and various levels of debugging.</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="convertArray" href="#" class="component"><strong>convertArray.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">When the form is submitted it is in a difficult to work with format as it is two seperate form parts (the header and the details section) submitted together. This component converts the incoming data into a more useable format. </p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="EntryClasses" href="#" class="component"><strong>EntryClasses.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This is the set of class descriptions for each precedence type available. Think of this as a list of Data Structure descriptions.</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="error" href="#" class="component"><strong>error.log</strong></a></h5>
+						<p class="list-group-item-text bg-success">This is where all error reports from any Debug flags that are turned on will be listed. It can either be viewed directly or via the RateMileQuery Admin Interface.</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="errorLogger" href="#" class="component"><strong>errorLogger.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This component is used to write any error messages to the error.log file.</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="formGenerator" href="#" class="component"><strong>formGenerator.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This component builds the details section of the entry form based on the criteria selected in the header section.</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="formProcessor" href="#" class="component"><strong>formProcessor.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This component reads all of the data submitted in the completed form processing it to first verify that it is in the correct format and that it was completed correctly. Then it will build a series of objects each representing a single complete record to be written to the Lane File. Once it has finished processing the submitted form it passes the collection of Entry Objects to the writer.php component</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="fuelCopy" href="#" class="component"><strong>fuelCopy.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This component makes an exact copy of an existing fuel table to a different customer or carrier code. If the 'copy-to' code already exists it will instead send an error stating such.</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="fuelForm" href="#" class="component"><strong>fuelForm.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This component builds the form used to enter the fuel table information</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="fuelProcessor" href="#" class="component"><strong>fuelProcessor.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This component, like the formProcessor, reads through all of the data sent from the form built by the fuelForm component formating it for entry into the fuel table file after validation.</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="fuelWriter" href="#" class="component"><strong>fuelWriter.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This component takes the formatted data from the fuelProcessor and writes it to the fuel table file</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="getCustomerInfo" href="#" class="component"><strong>getCustomerInfo.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This component populates the Carrier or Customer info after the header information is entered.</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="getPrecs" href="#" class="component"><strong>getPrecs.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This is an internal component that reads the precedence file creating a key value array linking precedence names to their order number. i.e. "City,ST to City,ST" will point to the number 10 per the contents of BNAPRECP in JOELIB. This removes the need to change the rest of the system if the order of precedences needs to be changed</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="milesProcessor" href="#" class="component"><strong>milesProcessor.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This component is a dedicated processor for miles based entries as it requires much more formatting before writing than a normal lane entry</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="settings" href="#" class="component"><strong>settings.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This component reads the contents of the config.ini file loading the values into global constants that will be used throughout the system to turn on and off certain levels of debugging as well as the functionality of the program itself.</p>
+					</li>
+					<li class="list-group-item">
+						<h5 class="list-group-item-heading bg-warning"><a id="writer" href="#" class="component"><strong>writer.php</strong></a></h5>
+						<p class="list-group-item-text bg-success">This component writes the formatted lane entries into the BNARATEP file.</p>
+					</li>
+				</ul>				
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+
+			$('#rateBuildComp .component').on('click', function(evt){
+				evt.preventDefault();
+				var id = $(this).attr('id');
+				var pgm = "rateBuilder";
+
+				$.ajax({
+					type: "POST",
+					dataType: "HTML",
+					url: "component",
+					data: {compName: id, pgm: pgm},
+					cache: false,
+					success: function(response) {
+						$("#detailView").html(response);
+					},
+					error: function(jqXHR, status, err) {
+						console.log(status, err);
+					}
+				});
+			});			
+		});
+	</script>
+</div>

@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="list-group">
+		<% for(var i=1; i <= Object.keys(tariffLevel.tars).length / 2; i++) { %>
+			<div class="list-group-item-heading bg-success col-md-7">
+				<a id="tarDetail<%= i %>" name="tarDetail<%= i %>" class="tarDetail" href="#">
+					Line Item:  <%= i %>
+				</a> &nbsp;&nbsp;
+
+				<button type="button" class="btn btn-default btn-xs tar" aria-label="expand">
+					<span id="tar<%= i %>" name="tar<%= i %>" class="glyphicon glyphicon-plus"></span>
+				</button>&nbsp;&nbsp;&nbsp;&nbsp; 
+
+				Tariff Numbers: &nbsp;&nbsp; <%= tariffLevel.tars["TAR" + (i - 1)] %>
+				<span id="tarDetail<%= i %>-line" hidden><%= tariffLevel.tars["TAR" + (i - 1) + "_line"] %></span>
+
+			</div>
+			<div id='tar<%= tariffLevel.tars["TAR" + (i - 1) + "_line"] %>Pane' class="list-group-item-text col-md-10 col-md-offset-2"></div>
+		<% } %>
+	</div>
+</div>

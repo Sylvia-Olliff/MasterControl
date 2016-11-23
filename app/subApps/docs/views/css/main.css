@@ -13,15 +13,9 @@ pre {
 	white-space: pre-wrap;
 }
 
-
-
-
-
-
-
-
-
-
+.wrap {
+	word-wrap: break-word;
+}
 
 
 

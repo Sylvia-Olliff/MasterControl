@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="well">
+		<form class="form" id="addPrograms">
+			<fieldset>
+				<legend>Add Programs to List by Name</legend>
+				<% for(var i=0; i < 50; i++) { %>
+					<div class="form-group">
+						<label for="addPgmName<%- i %>" class="col-md-6 control-label text-right">
+	                        <strong class="text-info">Program Name: </strong>
+	                    </label>
+	                    <div class="col-md-6 text-left">
+	                        <input type="text" name="addPgmName<%- i %>" id="addPgmName<%- i %>" class="form-control">
+	                    </div>
+					</div>
+				<% } %>
+			</fieldset>
+		</form>
+	</div>
+</div>

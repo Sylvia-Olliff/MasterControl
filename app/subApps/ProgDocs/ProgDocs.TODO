@@ -1,0 +1,58 @@
+
+Design Phase:
+  ☐ Link to tutorial documentation on how to use the Program Docs Interface
+  ☐ Search page for viewing all programs that have thus far been entered
+  ☐ Mapping page that displays all listed programs and there connections? 
+      NOTE: This will be a side project that may not be compelted, this could be a huge undertaking. 
+
+
+
+
+
+Documentation Header:
+  ☐ Role --- This is only to be filled out if part of a larger system (ACE for example)
+
+
+
+
+Documentation Component:
+
+
+
+
+Submission Processor: 
+  ☐ Add process handler for Program Header and Detail information
+      Note: These can refer to specific fields by name, though that is poor design this is very unlikely to change once implemented.
+  ☐ Add process handler for Components
+      Note: This will need to be able to handle a variable number of components
+
+
+
+
+
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ Interface for Adding program header information  @done (16-10-28 16:38) @project(Design Phase)
+ ✔ Date in Production  @done (16-10-28 16:37) @project(Documentation Header)
+ ✔ Called By  @done (16-10-28 16:37) @project(Documentation Header)
+ ✘ Implement Dialog box for adding programs that call this one.  @cancelled (16-10-28 16:37) @project(Documentation Header)
+ ✔ Calls  @done (16-10-28 16:37) @project(Documentation Header)
+ ✔ Called By:  @done (16-10-28 16:37) @project(Documentation Component)
+ ✔ Associated Files  @done (16-10-28 16:37) @project(Documentation Component)
+ ✘ Link to form for adding program components  @cancelled (16-10-28 10:08) @project(Design Phase)
+  NOTE: This is dependent on the header information already being entered 
+ ✔ Name  @done (16-10-28 08:46) @project(Documentation Component)
+ ✔ Component Task @done (16-10-28 08:46) @project(Documentation Component)
+ ✔ Component Logic @done (16-10-28 08:45) @project(Documentation Component)
+ ✔ Task  @done (16-10-27 10:13) @project(Documentation Header)
+ ✔ Function Key List  @done (16-10-27 10:13) @project(Documentation Header)
+ ✔ Design Members  @done (16-10-27 10:13) @project(Documentation Header)
+ ✔ Description   --- Overall program not any particular part.  @done (16-10-27 10:13) @project(Documentation Header)
+ ✔ System Name  @done (16-10-27 10:12) @project(Documentation Header)
+ ✔ Requested By  @done (16-10-27 10:12) @project(Documentation Header)
+ ✔ Program Type  @done (16-10-27 10:12) @project(Documentation Header)
+ ✔ Program Name  @done (16-10-27 10:12) @project(Documentation Header)
+ ✔ Location  @done (16-10-27 10:12) @project(Documentation Header)
+ ✔ Department  @done (16-10-27 10:12) @project(Documentation Header)
+ ✔ Date Requested  @done (16-10-27 10:12) @project(Documentation Header)

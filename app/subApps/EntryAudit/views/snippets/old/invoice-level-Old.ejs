@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="list-group">
+		<% for(var i=1; i <= invoiceLevel.invoiceNum; i++) { %>
+			<div class="list-group-item-heading bg-success col-md-7 col-md-offset-1 invoices">
+				<a id="invDetail<%= i %>" name="invDetail<%= i %>" class="invDetail" href="#">
+					Invoice <%= i %>
+				</a> &nbsp;&nbsp;
+
+				<button type="button" class="btn btn-default btn-xs inv" aria-label="expand">
+					<span id="inv<%= i %>" name="inv<%= i %>" class="glyphicon glyphicon-plus"></span>
+				</button>&nbsp;&nbsp;&nbsp;&nbsp; 
+
+				Line Items  &nbsp;&nbsp; 
+
+				<span class="badge">
+					<%= invoiceLevel.lineItems["inv" + i] %>
+				</span>
+			</div>
+		<div id="inv<%= i %>Pane" class="list-group-item-text col-md-10 col-md-offset-2"></div>
+		<% } %>
+	</div>
+</div>

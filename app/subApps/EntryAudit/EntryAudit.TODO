@@ -1,0 +1,144 @@
+ View Tasks:
+   ☐ Center the File and Entry Number label on the static header
+
+ Retrieval Tasks:
+
+   ☐ Add file IHSTTSU3 to Invoice level information, this contains missing data at the invoice level. 
+
+
+   ☐ Seperate application level logging from master control logging
+
+
+ Presentation Tasks:
+
+   ☐ Find a R&B logo that fits with the background color
+
+
+
+   ☐ binding issue with the structure of PG functions. They are set up to be executed in parallel however they are not getting their arguments and thus failing.
+
+
+
+
+
+
+
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ Determine which PG files contain the information for a given line item  @done (16-09-26 16:27) @project(Retrieval Tasks)
+  NOTE: Use a line of if statements, one for each PG file that are set to if(pgdata structure check attribute) if the check function returns true then that means that file contains data for that line item. then execute the actual query from the data structure
+  ADDITIONAL: Look into using async library to check all PG files concurrently and then execute if any return true. 
+ ✔ Build a DB2 File to store PGA relationship data  @done (16-09-26 16:27) @project(Retrieval Tasks)
+  NOTE: use the following field names
+  FILENAME - This is the file name i.e. IMPPG01P
+  PGCODE - This is the Afency Code associated. i.e. FDA
+  DSPFLD - This is either *ALL or a string of all field names that should be displayed for that file.
+  IGNFLD - This should be blank unless DSPFLD is *ALL then this is every field that should NOT be displayed.
+ ✔ Add PGA level information for each PG associated with a given Line Item  @done (16-09-26 16:27) @project(Retrieval Tasks)
+ ✔ Add JavaScript load for PGA area  @done (16-09-26 16:27) @project(Retrieval Tasks)
+  NOTE: PGA search will set a flag for whether or not there is any PG data at all and a flag for which PGA file(s) contain the information. Use this in the script area to deteremine which html snippet should be loaded
+ ✘ Add content for the tariff tab when one is selected  @cancelled (16-09-14 11:30) @project(Retrieval Tasks)
+  NOTE: Currently selected fields
+  I3TSU41  -- USTS 1 (Tariff 1)
+  I3SPIP1  -- SPI (Special Program Indicator) on Tariff 1
+  I3SPIS1  -- SPI (Special Program Indicator, Secondary) on Tariff 1
+  I3SPIC1  -- SPI Country Indicator on Tariff 1
+  I3RATE   -- Column (1,2,S) on Tariff 1
+  I3TSV42  -- Value on Tariff1
+  I3QTY44  -- Quantity 1 on Tariff 1
+  I3QTY45  -- Quantity 2 on Tariff 1
+  I3QTY46  -- Quantity 3 on Tariff 1
+  I3OA1    -- OA ( /N) on Tariff 1
+  I3TSUS#2 -- USTS#2
+  I3SPIP2  -- SPI (Special Program Indicator) on Tariff 2
+  I3SPIS2  -- SPI (Special Program Indicator, Secondary) on Tariff 2
+  I3SPIC2  -- SPI Country Indicator on Tariff 2
+  I3RATE   -- Column (1,2,S) on Tariff 2
+  I3TSVA2  -- Value on Tariff 2
+  I3QTY54  -- Quantity 1 on Tariff 2
+  I3QTY55  -- Quantity 2 on Tariff 2
+  I3QTY56  -- Quantity 3 on Tariff 2
+  I3OA2    -- OA ( /N) on Tariff 2
+  I3TSUS#3 -- USTS#3
+  I3SPIP3  -- SPI (Special Program Indicator) on Tariff 3
+  I3SPIS3  -- SPI (Special Program Indicator, Secondary) on Tariff 3
+  I3SPIC3  -- SPI Country Indicator on Tariff 3
+  I3RATE   -- Column (1,2,S) on Tariff 3
+  I3TSVA3  -- Value on Tariff 3
+  I3QTY64  -- Quantity 1 on Tariff 3
+  I3QTY65  -- Quantity 2 on Tariff 3
+  I3QTY66  -- Quantity 3 on Tariff 3
+  I3OA3    -- OA ( /N) on Tariff 3
+  I3YIELD  -- Yield
+  I3FEEEXP -- Fee Exempt (1/2/ )
+  I3VISA#  -- Visa Number
+  I3CVDCS# -- CVD (Counter Vailing Duty) Case #
+  I3CVDRAT -- CVD Rate
+  I3ADDCS# -- ADD (Anti-Dumping Duty) Case #
+  I3ADDRAT -- ADD Rate
+  I3LINWGT -- Line Weight
+  I3CHGNDC -- Pro-Rated Non-Dutiable Charges
+  I3CHGDC  -- Dutiable Charges
+  I3CHG48  -- Charge
+  I3MID#1  -- MFG/Seller              *****USE THIS TO FIND IN ACESE50P if Found then show 'Y' for MFG/SELLER (Y/S)*****
+  I3CO     -- C/O This Line Item
+  I0OISO   -- C/O Header
+  I3COE    -- C/E This Line Item
+  I0EISO   -- C/E Header
+  I3MIDF   -- FGNEXP / Seller          ****USE THIS TO FIND IN ACESE50P if Found then show 'Y' for FGNEXP/SELLER (Y/S)*****       
+ ✘ Add list of PGAs with information on a given Line Item  @cancelled (16-09-14 11:29) @project(Retrieval Tasks)
+ ✘ Add Cacheing for already requested information when the file number and broker haven't been changed  @cancelled (16-09-14 11:20) @project(Retrieval Tasks)
+  NOTE: Check that the contents div isn't empty before requesting information, if the find button is clicked set all content divs to empty
+  If a different drop down is clicked within a tab request information
+ ✔ Add production level logging to log files @done (16-08-19 10:19)
+ ✔ Seperate view all function that grabs all of the data in order under req.viewAll.  @done (16-08-19 10:18)
+  NOTE: Use similiar naming convention for the view all function to prevent confusion.
+ ✔ Rearrange the Headers to be one column.  @done (16-08-19 10:18)
+ ✘ Determine best method to select a given line item, without forknowledge of the previous Invoice @cancelled (16-08-18 15:30)
+ ✔ Seperate Middleware for each type of information set to be requested  @done (16-08-18 15:30)
+  NOTE: Consider changing the look of the tabs to be split like the buttons, if the main part is clicked show the header information for that
+  level. If the arrow is clicked show the list. 
+ ✔ Add flag next to Find for a view all format  @done (16-08-18 15:30)
+  NOTE: This should align everything staggered appropriatly but everything should be opened up.
+ ✔ Organize snippets for each type of data to be retrieved @done (16-08-17 12:25)
+  NOTE: File Info, Invoice Info, Tariff Info, PG info -- this one may need to be categorized for each PG 
+ ✔ Determine best way to find all instances of a set of data across all PGs @done (16-08-17 12:24)
+  NOTE: Test using a series of if else statements for each PG
+  Test using a Union of all PG files then selecting based of the BKR FILE And LINE
+ ✘ Double check tab panels line up  @cancelled (16-08-11 16:08)
+ ✔ Populate list of tariffs for a given invoice when one is selected @done (16-08-11 16:07)
+ ✔ Add content for the Invoice tab when one is selected @done (16-08-11 16:06)
+  NOTE: Currently selected fields
+  I2GRI35 -- Total Invoice Value
+  I2ISOE -- Country Code
+  I2DC37 -- Dutiable Charges
+  I2ND37 -- Non-Dutiable Charges
+  I2CRF34 -- Currency Factor
+  I2CNI40 -- Charges (If Prorated)
+  I2REL01 -- Related
+  I2COMINV -- Commercial Invoice
+  I2IGRWGT -- Gross Weight (If Prorated)
+  I2BLQIH -- Invoice Piece Count
+  I2GRWR -- REP (K,L) (This is the UOM for GRSWGT)
+  I2BLUIH -- Invoice Piece Count UOM
+ ✔ Add content for the File tab when Broker and File are entered.  @done (16-08-09 16:17)
+  NOTE: Currently selected fields
+  I0STAT -- Statement Type
+  I0TYPEE -- Entry Type
+  I0LIVE -- Live Entry
+  I0GOODFS -- Description
+  I0MID# -- MFG/SELLER
+  I0OISO -- C/O ISO
+  I0DATE -- Entry Date
+  I0MIDF -- FGN EXP/Seller
+  I0EISO -- C/E ISO
+  I0DUEDAT -- Payment Due Date
+  I0SEB -- Produce SEB
+  I0BTYPE -- Bond Type (/0/8/9)
+  I0MOTN -- MOT
+  I0ESTDOA -- ETA at Entry Port
+  I0ENTNUM -- Entry Number
+ ✔ Add behavior for clicking on a dropdown item setting the parent tab to active and displaying the data.  @done (16-08-09 16:17)
+  NOTE: This should be handled by sending a post to the server when the dropdown is clicked to retrieve the specific information desired 
+

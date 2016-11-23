@@ -1,0 +1,107 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Program Docs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+
+        <%if (ENV == "DEV") { %>
+
+          <link rel="stylesheet" href="/ProgDocs/css/bootstrap.css">
+          <link rel="stylesheet" href="/ProgDocs/css/main.css">
+          <link rel="stylesheet" href="/ProgDocs/css/jquery-ui.css">
+
+          <link rel="stylesheet" type="text/css" href="/ProgDocs/css/bootstrap-material-design.css">
+          <link rel="stylesheet" type="text/css" href="/ProgDocs/css/ripples.css">
+
+        <% } else { %>
+          <link rel="stylesheet" href="/ProgDocs/css/main.min.css">
+        <% } %>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
+
+        <script type="text/javascript" src="/ProgDocs/js/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+        <script type="text/javascript" src="/ProgDocs/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/ProgDocs/js/material.min.js"></script>
+        <script type="text/javascript" src="/ProgDocs/js/ripples.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+        <script type="text/javascript" src="/ProgDocs/js/moment.min.js"></script>
+        <script type="text/javascript" src="/ProgDocs/js/view-main.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <nav class="navbar navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand text-white" href="#"><strong>Program Docs Interface</strong></a>
+          <div id="fileData" class="navbar-brand text-white"></div>
+          <div id="entryData" class="navbar-brand text-white"></div>
+
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        <img src="/ProgDocs/img/footerLogo.png" align="right" width="160px" height="50px" style="padding-top: 6px;">
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+        <hr><br>
+        <div class="alert alert-info" hidden>
+          <p class="text-center"><strong>Saved for potential use</strong></p>
+        </div>
+        <br>
+        
+        <div class="row">
+          <div class="well">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="text-center">Please Enter the Program Name to be Viewed</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="row form-group">
+          <div class="col-md-4 text-right">
+            <p>Name:</p>
+          </div>
+          <div class="col-md-4 text-center">
+              <input type="text" name="pgmName" id="pgmName" class="form-control">
+          </div>
+          <div class="col-md-4 text-center">
+            <a href="#" id="find" class="btn btn-primary btn-lg btn-raised" role="button">Find</a>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div id="viewArea" class="row">
+          <div class="well">
+            <div class="row">
+              <div id="pgmView"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </body>
+</html>
