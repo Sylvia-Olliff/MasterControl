@@ -1,4 +1,7 @@
 $(document).ready(function() {
+	var env = $("#ENV").html();
+	console.log(env);
+	var apiAddress = (env == "DEV") ? "http://as400.rogers-brown.com:8888" : "http://as400.rogers-brown.com:88";
 
 	$.fn.scrollView = function () {
 	  return this.each(function () {
@@ -34,6 +37,85 @@ $(document).ready(function() {
 			loadDialog.close();
 		});
 
+	$("#clearInfo").on('click', function(evt) {
+		evt.preventDefault();
+
+		$.ajax({
+			type: "GET",
+			dataType: "HTML",
+			url: apiAddress + "/api/clearInfo",
+			cache: false,
+			success: function(result) {
+				console.log(result);
+				
+			}, 
+			error: function(jqXHR, status, err) {
+				console.log("Error");
+				console.log(status, err);	
+			}
+
+		});
+	});
+
+	$("#clearDebug").on('click', function(evt) {
+		evt.preventDefault();
+
+		$.ajax({
+			type: "GET",
+			dataType: "HTML",
+			url: apiAddress + "/api/clearDebug",
+			cache: false,
+			success: function(result) {
+				console.log(result);
+				
+			}, 
+			error: function(jqXHR, status, err) {
+				console.log("Error");
+				console.log(status, err);	
+			}
+
+		});
+	});
+
+	$("#clearErrors").on('click', function(evt) {
+		evt.preventDefault();
+
+		$.ajax({
+			type: "GET",
+			dataType: "HTML",
+			url: apiAddress + "/api/clearErrors",
+			cache: false,
+			success: function(result) {
+				console.log(result);
+				
+			}, 
+			error: function(jqXHR, status, err) {
+				console.log("Error");
+				console.log(status, err);	
+			}
+
+		});
+	});
+
+	$("#clearAll").on('click', function(evt) {
+		evt.preventDefault();
+
+		$.ajax({
+			type: "GET",
+			dataType: "HTML",
+			url: apiAddress + "/api/clearAll",
+			cache: false,
+			success: function(result) {
+				console.log(result);
+				
+			}, 
+			error: function(jqXHR, status, err) {
+				console.log("Error");
+				console.log(status, err);	
+			}
+
+		});
+	});
 	
 	$("#restartAll").on('click', function(evt) {
 		evt.preventDefault();
@@ -41,7 +123,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: "GET",
 			dataType: "HTML",
-			url: "http://as400.rogers-brown.com:8888/api/restartAll",
+			url: apiAddress + "/api/restartAll",
 			cache: false,
 			success: function(result) {
 				alert(result);
@@ -55,17 +137,58 @@ $(document).ready(function() {
 		});
 	});
 
-	$("#testDebug").on('click', function(evt) {
+	$("#logsDebug").on('click', function(evt) {
 		evt.preventDefault();
 
 		$.ajax({
 			type: "GET",
 			dataType: "HTML",
-			url: "http://as400.rogers-brown.com:8888/api/test",
+			url: apiAddress + "/api/readDebug",
 			cache: false,
 			success: function(result) {
 				
-				$('[data-toggle="popover"]').popover();				
+				$("#logTestView").html(result);	
+				$('[data-toggle="popover"]').popover();						
+			}, 
+			error: function(jqXHR, status, err) {
+				console.log("Error");
+				console.log(status, err);	
+			}
+		});
+	});
+
+	$("#logsInfo").on('click', function(evt) {
+		evt.preventDefault();
+
+		$.ajax({
+			type: "GET",
+			dataType: "HTML",
+			url: apiAddress + "/api/readInfo",
+			cache: false,
+			success: function(result) {
+				
+				$("#logTestView").html(result);	
+				$('[data-toggle="popover"]').popover();						
+			}, 
+			error: function(jqXHR, status, err) {
+				console.log("Error");
+				console.log(status, err);	
+			}
+		});
+	});
+
+	$("#logsError").on('click', function(evt) {
+		evt.preventDefault();
+
+		$.ajax({
+			type: "GET",
+			dataType: "HTML",
+			url: apiAddress + "/api/readError",
+			cache: false,
+			success: function(result) {
+				
+				$("#logTestView").html(result);	
+				$('[data-toggle="popover"]').popover();						
 			}, 
 			error: function(jqXHR, status, err) {
 				console.log("Error");

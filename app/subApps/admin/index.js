@@ -13,7 +13,7 @@ module.exports = function(args) {
 	
 
 	router.get('/', status.referencesList, status.programsList, function(req, res) {
-		res.render(__dirname + '/views/index.ejs', {subApps: args.subAppsNum, connections: req.connections, programs: req.programs}, function(err, html) {
+		res.render(__dirname + '/views/index.ejs', {subApps: args.subAppsNum, connections: req.connections, programs: req.programs, env: process.env.NODE_ENV}, function(err, html) {
 			if (err) {logger.log('error', err);}
 
 			res.send(html);

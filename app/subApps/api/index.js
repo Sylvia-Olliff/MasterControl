@@ -17,8 +17,46 @@ module.exports = function(args) {
 		});
 	});
 
+	router.get('/readInfo', api.readInfo, function(req, res) {
+		res.render(__dirname + '/views/logTable.ejs', {logs: req.logs.info}, function(err, html) {
+			if (err) {logger.log('error', err)};
+
+			res.send(html);
+		});
+	});
+
+	router.get('/readError', api.readError, function(req, res) {
+		res.render(__dirname + '/views/logTable.ejs', {logs: req.logs.error}, function(err, html) {
+			if (err) {logger.log('error', err)};
+
+			res.send(html);
+		});
+	});
+
 	router.get('/readDebugCount', function(req, res) {
 		var set = monitor.debugCount;
+	});
+
+	router.get('/clearInfo', api.clearInfo, function(req, res) {
+		logger.log('info', "Logging reset...");
+		res.send("Success");
+	});
+
+	router.get('/clearDebug', api.clearDebug, function(req, res) {
+		logger.log('debug', "Logging reset...");
+		res.send("Success");
+	});
+
+	router.get('/clearErrors', api.clearErrors, function(req, res) {
+		logger.log('error', "Logging reset...");
+		res.send("Success");
+	});
+
+	router.get('/clearAll', api.clearInfo, api.clearDebug, api.clearErrors, function(req, res) {
+		logger.log('info', "Logging reset...");
+		logger.log('debug', "Logging reset...");
+		logger.log('error', "Logging reset...");
+		res.send("Success");
 	});
 
 	router.get('/restartAll', function(req, res) {

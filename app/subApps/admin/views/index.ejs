@@ -26,7 +26,7 @@
     <!-- Custom Theme Style -->
     <link href="css/custom.min.css" rel="stylesheet">
   </head>
-
+  <div id="ENV" hidden><%- env %></div>
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -61,14 +61,19 @@
                     <ul class="nav child_menu">
                       <li><a href="#" id="viewRecent">View Recent Activity</a></li>
                       <li><a href="#" id="viewLogsNode">View Logs for NodeJS</a></li>
+                      <li><a href="#" id="logsDebug">Debug Logs</a></li>
+                      <li><a href="#" id="logsInfo">Info Logs</a></li>
+                      <li><a href="#" id="logsError">Error Logs</a></li>
                       <li><a href="#" id="viewLogsPHP">View Logs for PHP</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-cogs"></i> Control Options <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#" id="restartAll">Restart Services and SubApps</a></li>
-                      <li><a href="#" id="clearLogs">Clear Logs</a></li>
-                      <li><a href="#" id="testDebug">Run Test on Debug Logs</a></li>
+                      <li><a href="#" id="clearInfo">Clear Info Logs</a></li>
+                      <li><a href="#" id="clearDebug">Clear Debug Logs</a></li>
+                      <li><a href="#" id="clearErrors">Clear Errors Logs</a></li>
+                      <li><a href="#" id="clearAll">Clear All Logs</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -144,7 +149,7 @@
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   
                 </div>
-                <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
+                <!-- <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
                   <div class="x_title">
                     <h2>Top Campaign Performance</h2>
                     <div class="clearfix"></div>
@@ -187,7 +192,7 @@
                     </div>
                   </div>
 
-                </div>
+                </div> -->
 
                 <div class="clearfix"></div>
               </div>
@@ -195,6 +200,12 @@
 
           </div>
           <br />
+
+          <div class="row">
+            <div id="logTestView">
+                            
+            </div>
+          </div>
 
           <div class="row">
               <div class="row">
@@ -230,9 +241,6 @@
                 
                 <!-- end of weather widget -->
               </div>
-              <div id="logTestView">
-                            
-              </div>
             </div>
           </div>
         </div>
@@ -255,8 +263,6 @@
     <script src="dist/js/tether.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
-    <!-- main.js -->
-    <script src="dist/js/main.js"></script>
     <!-- material.js -->
     <script src="dist/js/material.min.js"></script>
     <!-- ripples.js -->
@@ -276,27 +282,29 @@
     <!-- Skycons -->
     <script src="dist/vendors/skycons/skycons.js"></script>
     <!-- Flot -->
-    <script src="dist/vendors/Flot/jquery.flot.js"></script>
+    <!-- <script src="dist/vendors/Flot/jquery.flot.js"></script>
     <script src="dist/vendors/Flot/jquery.flot.pie.js"></script>
     <script src="dist/vendors/Flot/jquery.flot.time.js"></script>
     <script src="dist/vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="dist/vendors/Flot/jquery.flot.resize.js"></script>
+    <script src="dist/vendors/Flot/jquery.flot.resize.js"></script> -->
     <!-- Flot plugins -->
-    <script src="js/flot/jquery.flot.orderBars.js"></script>
+    <!-- <script src="js/flot/jquery.flot.orderBars.js"></script>
     <script src="js/flot/date.js"></script>
     <script src="js/flot/jquery.flot.spline.js"></script>
-    <script src="js/flot/curvedLines.js"></script>
+    <script src="js/flot/curvedLines.js"></script> -->
     <!-- jVectorMap -->
-    <script src="js/maps/jquery-jvectormap-2.0.3.min.js"></script>
+    <!-- <script src="js/maps/jquery-jvectormap-2.0.3.min.js"></script> -->
     <!-- bootstrap-daterangepicker -->
     <script src="js/moment/moment.min.js"></script>
     <script src="js/datepicker/daterangepicker.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="js/custom.min.js"></script>
+    <!-- main.js -->
+    <script src="dist/js/main.js"></script>
 
     <!-- Flot -->
-    <script>
+    <!-- <script>
       $(document).ready(function() {
         var plot;
         var data1 = data1 = [
@@ -378,11 +386,11 @@
           return new Date(year, month - 1, day, hour, minute).getTime();
         }
       });
-    </script>
+    </script> -->
     <!-- /Flot -->
 
     <!-- jVectorMap -->
-    <script src="js/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- <script src="js/maps/jquery-jvectormap-world-mill-en.js"></script>
     <script src="js/maps/jquery-jvectormap-us-aea-en.js"></script>
     <script src="js/maps/gdp-data.js"></script>
     <script>
@@ -403,7 +411,7 @@
           }
         });
       });
-    </script>
+    </script> -->
     <!-- /jVectorMap -->
 
     <!-- Skycons -->
@@ -427,7 +435,7 @@
     </script>
     <!-- /Skycons -->
 
-    <!-- Doughnut Chart -->
+    <!-- Doughnut Chart 
     <script>
       $(document).ready(function(){
         var options = {
@@ -468,7 +476,7 @@
         });
       });
     </script>
-    <!-- /Doughnut Chart -->
+     /Doughnut Chart -->
     
     <!-- bootstrap-daterangepicker -->
     <script>
@@ -545,7 +553,7 @@
     <!-- /bootstrap-daterangepicker -->
 
     <!-- gauge.js -->
-    <script>
+    <!-- <script>
       var opts = {
           lines: 12,
           angle: 0,
@@ -568,7 +576,7 @@
       gauge.animationSpeed = 32;
       gauge.set(3200);
       gauge.setTextField(document.getElementById("gauge-text"));
-    </script>
+    </script> -->
     <!-- /gauge.js -->
   </body>
 </html>

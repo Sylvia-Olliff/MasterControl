@@ -22,13 +22,11 @@ module.exports = {
 		var funcKeys = "";
 
 		if (req.body.funcKeys != undefined) {
-
 			for (var i = 0; i < req.body.funcKeys.length; i++) {
 				funcKeys += req.body.funcKeys[i] + ",";
 			}
-
 			funcKeys = funcKeys.slice(0, funcKeys.length - 1);
-		} 
+		}
 
 		var proDate = formatDate(proDateStr.slice(0,4), proDateStr.slice(4,6) - 1, proDateStr.slice(6, 8));
 		var reqDate = formatDate(reqDateStr.slice(0,4), reqDateStr.slice(4,6) - 1, reqDateStr.slice(6, 8));
@@ -36,9 +34,7 @@ module.exports = {
 		var date = new Date();
 		var curTime = date.getHours() - 5 + ":" + date.getMinutes() + ":" + date.getSeconds();
 
-
 		logger.log('debug', proDate + " : " + reqDate + " : " + curDate);
-
 
 		// First check to see if this program already exists in the docs file.
 		db.init();
@@ -50,12 +46,9 @@ module.exports = {
 						req.DocsRes = {
 							ERROR: "Program Documentation Already Exists"
 						}
-
 						next();
 					} else {
-
 						//Continue on to add documentation to files
-
 						var insertString = " INSERT INTO JOELIB.SYSDOCPP (SPPGM, SPTYPE, SPREQ, SPDEP, SPSYSTEM, SPLOCAL, SPDATREQ, SPDATPRO, SPDESIGN, SPFUNC, SPFILES, SPDESC, SPTASK, SPCDAT, SPCTIM, SPCPGM, SPCUSR) VALUES " +
 										   " ( '" + name + "', '" + type + "', '" + reqBy + "', '" + department + "', '" + system + "', '" + location + ", " + reqDate + "', '" + proDate + "', '" + design + "', '" + funcKeys + "', '" + pgmFiles + "', '" + pgmDesc + "', '" + pgmTask + "', '" + curDate + "', '" + curTime + "', 'PROGDOC', 'WEBUSER') with NC";
 
@@ -69,12 +62,9 @@ module.exports = {
 							});
 						} catch (e) {
 							logger.log('error', "Name: " + e.name + ", Message: " + e.message + ", Stack: " + e.stack );
-
-
 						} finally {
 							next();
 						}
-						
 					}
 				}
 		});
@@ -115,18 +105,13 @@ module.exports = {
 	},
 
 	processComponents: function(req, res, next) {
-
 		var pgmName = req.body.pgmName;
-
 		var count = 1;
-
 		var names  = [];
 		var files  = [];
 		var tasks  = [];
 		var logics = [];
-
 		var insertSets = [];
-
 		var curDate = formatDate(new Date);
 		var date = new Date();
 		var curTime = date.getHours() - 5 + ":" + date.getMinutes() + ":" + date.getSeconds();
@@ -152,7 +137,6 @@ module.exports = {
 						count = 0;
 						break;	
 				} 
-
 				count++;
 			}
 		}
@@ -196,11 +180,9 @@ module.exports = {
 					var funcKeys = "";
 
 					if (req.body.funcKeys != undefined) {
-
 						for (var i = 0; i < req.body.funcKeys.length; i++) {
 							funcKeys += req.body.funcKeys[i] + ",";
 						}
-
 						funcKeys = funcKeys.slice(0, funcKeys.length - 1);
 					} 
 
@@ -245,20 +227,16 @@ module.exports = {
 		db.init();
 		db.conn("*LOCAL");
 		db.exec("SELECT SRPGM, SRTRGT FROM JOELIB.SYSDOCRP WHERE SRPGM='" + name + "' OR SRTRGT='" + name + "'", function(results) {
-
 			if(results !== undefined && results.length != 0) {
 				var existingPairs = [];
 				for(result in results) {
-
 					existingPairs[result] = { 
 						src: results[result].SRPGM.trim(),
 						tgt: results[result].SRTRGT.trim()
 					};
 				}
-
 				var length = existingPairs.length;
 				var removals = [];
-
 				for(var entry = 0; entry < length; entry++) {
 					if (callsSet.indexOf(existingPairs[entry].tgt) > -1) {
 						callsSet.splice(callsSet.indexOf(existingPairs[entry].tgt), 1);;
@@ -268,7 +246,7 @@ module.exports = {
 						removals.push(entry);
 					}
 				}
-
+				
 				for (var i = removals.length - 1; i >= 0; i--) {
 					existingPairs.splice(i, 1);
 				}
@@ -338,7 +316,6 @@ module.exports = {
 					next();
 				}
 			}
-
 		});
 	}
 }
@@ -357,9 +334,8 @@ function formatDate(date) {
 }
 
 function referencesFunc(dataArgs, callback) {
-	var name = dataArgs.name;
-	var calls = dataArgs.calls;
-
+	var name 	= dataArgs.name;
+	var calls 	= dataArgs.calls;
 	var curDate = dataArgs.curDate;
 	var curTime = dataArgs.curTime;
 
@@ -378,7 +354,6 @@ function componentFunc(dataArgs, callback) {
 	var file  	= dataArgs.file;
 	var task  	= dataArgs.task.replace("'", " ");
 	var logic 	= dataArgs.logic.replace("'", " ");
-
 	var curDate = dataArgs.curDate;
 	var curTime = dataArgs.curTime;
 
